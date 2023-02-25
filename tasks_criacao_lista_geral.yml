@@ -21,7 +21,7 @@
 - name: asdf
   set_fact:
     objeto:
-      "{{ item }}": "{{ lista_hostnames_afetados }}"
+      "{{ lookup('vars', item) }}": "{{ lista_hostnames_afetados }}"
 
 - set_fact:
     lista_tudo: "{{ lista_tudo + [objeto] }}"
