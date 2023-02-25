@@ -1,6 +1,0 @@
----
-- name: Playbook de teste - Windows da massa (eu não faço parte dessa massa!)
-  hosts: clientewin2022.transp.com
-  gather_facts: False
-  tasks:
-    win_ping:
