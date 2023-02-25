@@ -46,8 +46,7 @@
 
     - name: Gera a lista de hosts afetados por vulnerailidades
       ansible.builtin.set_fact:
-        lista_hosts_afetados: "{{ lista_hosts_afetados + [item | dict2items | map(attribute='value') | flatten] }}"
-      #ansible.builtin.include_tasks: tasks_criacao_lista_hostnames_afetados.yml
+        lista_hosts_afetados: "{{ (lista_hosts_afetados + [item | dict2items | map(attribute='value') | flatten]) | flatten }}"
       loop: "{{ lista_tudo }}"
 
     - name: Exibe
