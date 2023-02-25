@@ -4,4 +4,4 @@
 
 - name: exibe
   ansible.builtin.debug:
-    var: listinha
+    msg: "{{ listinha | type_debug }}"
