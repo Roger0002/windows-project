@@ -1,5 +1,5 @@
 - name: Sei lá
-  ansible.builin.set_fact:
+  ansible.builtin.set_fact:
    listinha: "{{ item | dict2items | map(attribute='value') | list }}"
 
 - name: exibe
