@@ -1,7 +1,7 @@
 - name: Sei lá
   ansible.builtin.set_fact:
-   listinha: "{{ item }}"
+   listinha: "{{ item | dict2items | map(attribute='value') | list }}"
 
 - name: exibe
   ansible.builtin.debug:
-    msg: "{{ listinha | type_debug }}"
+    msg: "{{ listinha }}"
