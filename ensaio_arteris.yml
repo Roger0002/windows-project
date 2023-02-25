@@ -40,9 +40,9 @@
       ansible.builtin.debug:
         var: lista_tudo
 
-    #- name: Cria a lista lista_hosts_afetados, vazia
-    #  ansible.builtin.set_fact:
-    #    lista_hosts_afetados: []
+    - name: Cria a lista lista_hosts_afetados, vazia
+      ansible.builtin.set_fact:
+        lista_hosts_afetados: []
 
     - name: Gera a lista de hosts afetados por vulnerailidades
       ansible.builtin.set_fact:
