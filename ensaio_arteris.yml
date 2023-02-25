@@ -42,7 +42,7 @@
 
     - name: Cria a lista de hosts afetados por vulnerabilidades quaisquer
       ansible.builtin.set_fact:
-        lista_hosts_afetados: "{{ lista_tudo | map('dict2items') | sum(start=[]) | map(attribute='value') | list }}"
+        lista_hosts_afetados: "{{ lista_tudo | map('dict2items') | flatten | map(attribute='value') | list }}"
 
     - name: Exibe
       ansible.builtin.debug:
