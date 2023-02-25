@@ -20,7 +20,7 @@
 
 - name: asdf
   set_fact:
-    objeto: "{{{ item }}: {{ lista_hostnames_afetados }}}"
+    objeto: "{ {{ item }}: {{ lista_hostnames_afetados }} }"
 
 - set_fact:
     lista_tudo: "{{ lista_tudo + [objeto] }}"
