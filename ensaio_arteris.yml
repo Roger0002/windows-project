@@ -1,6 +1,7 @@
 ---
 - name: Playbook que brinca com API de mentirinha
   hosts: localhost
+  gather_facts: True
   become: True
   tasks:
     # Lista as vulnerabilidades
