@@ -1,0 +1,21 @@
+---
+- name: Playbook que Atualiza as máquinas constantes na lista lista_hosts_afetados
+  hosts: "{{ lista_hosts_afetados }}"
+  become: True
+  vars:
+    ansible_user: ansible
+    ansible_password: Manchester3333
+    ansible_connection: winrm
+    ansible_winrm_transport: credssp
+    ansible_port: 5985
+  tasks:
+    - name: Atualiza as máquinas com vulnerabilidades
+      win_updates:
+        category_names: SecurityUpdates
+        state: installed
+        reboot: True
+      register: atualizacoes
+      #until: atualizacoes.reboot_required == false
+      #retries: 20
+      #delay: 180
+...
