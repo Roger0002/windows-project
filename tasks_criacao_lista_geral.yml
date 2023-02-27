@@ -15,8 +15,14 @@
     lista_hostnames_afetados: []
 
 - name: Gera a lista de hostnames afetados pela vulnerabilidade em questão
-  include_tasks: gera_lista_hostname_temp.yml
   loop: "{{ estrutura_assets }}"
+  set_fact:
+    lista_hostnames_afetados: "{{ lista_hostnames_afetados + [item.hostName] }}"
+  when: item.id in lista_id_assets_temp
+  
+
+- name: Gera a lista com os hostnames afetados
+  
 
 - name: asdf
   set_fact:
