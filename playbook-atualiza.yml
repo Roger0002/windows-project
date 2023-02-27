@@ -1,6 +1,6 @@
 ---
 - name: Playbook que Atualiza as máquinas constantes na lista lista_hosts_afetados
-  hosts: "{{ lista_hosts_afetados }}"
+  hosts: "{{ hostvars['localhost']['lista_hosts_afetados'] }}"
   become: True
   vars:
     ansible_user: ansible
