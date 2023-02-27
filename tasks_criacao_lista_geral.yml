@@ -21,7 +21,7 @@
   loop: "{{ estrutura_assets }}"
   
 
-- name: Gera a lista com os hostnames afetados
+#- name: Gera a lista com os hostnames afetados
   
 
 - name: asdf
