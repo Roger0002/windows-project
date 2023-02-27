@@ -19,12 +19,8 @@
     lista_hostnames_afetados: "{{ lista_hostnames_afetados + [item.hostName] }}"
   when: item.id in lista_id_assets_temp
   loop: "{{ estrutura_assets }}"
-  
 
-#- name: Gera a lista com os hostnames afetados
-  
-
-- name: asdf
+- name: Gera o par chave-valor de uma vulnerabilidade (vuln - hosts)
   set_fact:
     objeto: "{{ { item: lista_hostnames_afetados } }}"
 
