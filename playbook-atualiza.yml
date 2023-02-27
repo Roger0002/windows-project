@@ -2,7 +2,7 @@
 - name: Playbook que Atualiza as máquinas constantes na lista lista_hosts_afetados
   hosts: "{{ lista_hosts_afetados_stat }}"
   gather_facts: False
-  become: True
+  become: False
   vars:
     ansible_user: ansible
     ansible_password: Manchester3333
