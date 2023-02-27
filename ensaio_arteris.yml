@@ -53,4 +53,11 @@
     - name: Exibe
       ansible.builtin.debug:
         var: lista_hosts_afetados
+
+    - name: Define um stat para as listas que precisarão ser usadas no próximo Playbook
+      ansible.builtin.set_stats:
+        data:
+          lista_hosts_afetados_stat: "{{ lista_hosts_afetados }}"
+          lista_tudo_stat: "{{ lista_tudo }}"
+        aggregate: False  
 ...
