@@ -15,7 +15,7 @@
 
     - name: Gerando a variável lista_vuln, que guarda uma lista com as vulnerabilidades da microsoft
       ansible.builtin.set_fact:
-        lista_vuln: "{{ json_vulnerabilidades.content | from_json | community.general.json_query('resources[*].id') | select('match', '^msft-') | list }}"
+        lista_vuln: "{{ json_vulnerabilidades.content | from_json | json_query('resources[*].id') | select('match', '^msft-') | list }}"
 
     - name: Gerando a variável lista_tudo, que guardará a lista contendo as vulnerabilidades e as máquinas afetadas
       ansible.builtin.set_fact:
@@ -31,7 +31,7 @@
 
     - name: Gerando um LISTA contendo DICIONÁRIOS com os assets conhecidos pela API
       ansible.builtin.set_fact:
-        estrutura_assets: "{{ json_assets.content | from_json | community.general.json_query('resources[*].{id: id, hostName: hostName}') }}"
+        estrutura_assets: "{{ json_assets.content | from_json | json_query('resources[*].{id: id, hostName: hostName}') }}"
 
     - name: Gerando lista com todas as vulnerabilidades e seus respectivos assets em formato de dicionário 
       ansible.builtin.include_tasks: tasks_criacao_lista_geral.yml
